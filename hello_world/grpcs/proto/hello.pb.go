@@ -29,9 +29,7 @@ type HelloRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name    string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Age     int32    `protobuf:"varint,2,opt,name=age,proto3" json:"age,omitempty"`
-	Courses []string `protobuf:"bytes,3,rep,name=courses,proto3" json:"courses,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 }
 
 func (x *HelloRequest) Reset() {
@@ -73,21 +71,7 @@ func (x *HelloRequest) GetName() string {
 	return ""
 }
 
-func (x *HelloRequest) GetAge() int32 {
-	if x != nil {
-		return x.Age
-	}
-	return 0
-}
-
-func (x *HelloRequest) GetCourses() []string {
-	if x != nil {
-		return x.Courses
-	}
-	return nil
-}
-
-type Response struct {
+type HelloResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -95,8 +79,8 @@ type Response struct {
 	Reply string `protobuf:"bytes,1,opt,name=reply,proto3" json:"reply,omitempty"`
 }
 
-func (x *Response) Reset() {
-	*x = Response{}
+func (x *HelloResponse) Reset() {
+	*x = HelloResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_hello_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -104,13 +88,13 @@ func (x *Response) Reset() {
 	}
 }
 
-func (x *Response) String() string {
+func (x *HelloResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Response) ProtoMessage() {}
+func (*HelloResponse) ProtoMessage() {}
 
-func (x *Response) ProtoReflect() protoreflect.Message {
+func (x *HelloResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_hello_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -122,12 +106,12 @@ func (x *Response) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Response.ProtoReflect.Descriptor instead.
-func (*Response) Descriptor() ([]byte, []int) {
+// Deprecated: Use HelloResponse.ProtoReflect.Descriptor instead.
+func (*HelloResponse) Descriptor() ([]byte, []int) {
 	return file_hello_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *Response) GetReply() string {
+func (x *HelloResponse) GetReply() string {
 	if x != nil {
 		return x.Reply
 	}
@@ -138,19 +122,16 @@ var File_hello_proto protoreflect.FileDescriptor
 
 var file_hello_proto_rawDesc = []byte{
 	0x0a, 0x0b, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x05, 0x68,
-	0x65, 0x6c, 0x6c, 0x6f, 0x22, 0x4e, 0x0a, 0x0c, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71,
+	0x65, 0x6c, 0x6c, 0x6f, 0x22, 0x22, 0x0a, 0x0c, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71,
 	0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x61, 0x67, 0x65, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x03, 0x61, 0x67, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x6f,
-	0x75, 0x72, 0x73, 0x65, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x09, 0x52, 0x07, 0x63, 0x6f, 0x75,
-	0x72, 0x73, 0x65, 0x73, 0x22, 0x20, 0x0a, 0x08, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x14, 0x0a, 0x05, 0x72, 0x65, 0x70, 0x6c, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x05, 0x72, 0x65, 0x70, 0x6c, 0x79, 0x32, 0x36, 0x0a, 0x05, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12,
-	0x2d, 0x0a, 0x05, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x13, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f,
-	0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0f, 0x2e,
-	0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x09,
-	0x5a, 0x07, 0x2e, 0x3b, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x25, 0x0a, 0x0d, 0x48, 0x65, 0x6c, 0x6c,
+	0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x72, 0x65, 0x70,
+	0x6c, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x72, 0x65, 0x70, 0x6c, 0x79, 0x32,
+	0x3b, 0x0a, 0x05, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x32, 0x0a, 0x05, 0x48, 0x65, 0x6c, 0x6c,
+	0x6f, 0x12, 0x13, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x14, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x2e, 0x48,
+	0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x09, 0x5a, 0x07,
+	0x2e, 0x3b, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -167,12 +148,12 @@ func file_hello_proto_rawDescGZIP() []byte {
 
 var file_hello_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_hello_proto_goTypes = []interface{}{
-	(*HelloRequest)(nil), // 0: hello.HelloRequest
-	(*Response)(nil),     // 1: hello.Response
+	(*HelloRequest)(nil),  // 0: hello.HelloRequest
+	(*HelloResponse)(nil), // 1: hello.HelloResponse
 }
 var file_hello_proto_depIdxs = []int32{
 	0, // 0: hello.Hello.Hello:input_type -> hello.HelloRequest
-	1, // 1: hello.Hello.Hello:output_type -> hello.Response
+	1, // 1: hello.Hello.Hello:output_type -> hello.HelloResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -199,7 +180,7 @@ func file_hello_proto_init() {
 			}
 		}
 		file_hello_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Response); i {
+			switch v := v.(*HelloResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -243,7 +224,7 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type HelloClient interface {
-	Hello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*Response, error)
+	Hello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error)
 }
 
 type helloClient struct {
@@ -254,8 +235,8 @@ func NewHelloClient(cc grpc.ClientConnInterface) HelloClient {
 	return &helloClient{cc}
 }
 
-func (c *helloClient) Hello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*Response, error) {
-	out := new(Response)
+func (c *helloClient) Hello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error) {
+	out := new(HelloResponse)
 	err := c.cc.Invoke(ctx, "/hello.Hello/Hello", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -265,14 +246,14 @@ func (c *helloClient) Hello(ctx context.Context, in *HelloRequest, opts ...grpc.
 
 // HelloServer is the server API for Hello service.
 type HelloServer interface {
-	Hello(context.Context, *HelloRequest) (*Response, error)
+	Hello(context.Context, *HelloRequest) (*HelloResponse, error)
 }
 
 // UnimplementedHelloServer can be embedded to have forward compatible implementations.
 type UnimplementedHelloServer struct {
 }
 
-func (*UnimplementedHelloServer) Hello(context.Context, *HelloRequest) (*Response, error) {
+func (*UnimplementedHelloServer) Hello(context.Context, *HelloRequest) (*HelloResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Hello not implemented")
 }
 
